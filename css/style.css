@@ -1,0 +1,146 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	}
+      
+	ul,
+	ul li {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none;
+		}
+      
+      /* Basic sample CSS */
+    #slider-container {
+    	width: 740px;
+    	height: 300px;
+    	margin: 0 auto;
+    	display: block;
+    	overflow: hidden;
+    	clip: rect(auto, auto, auto, auto);
+    	position: relative;
+    	}  
+	ul#flip {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto 50px auto;
+        position: relative;
+        
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		
+		-webkit-perspective: 1000px;
+		-moz-perspective: 1000px;
+		-o-perspective: 1000px;
+		-ms-perspective: 1000px;
+		perspective: 1000px;
+		
+	}
+      
+    ul#flip li { 
+    	width: 200px;
+    	display: block;
+    	position: absolute;
+    	text-align: center; 
+    	cursor: pointer;
+    	bottom: 75px;
+    	
+    	-webkit-transition: bottom 1s ease;
+		-moz-transition: bottom 1s ease;
+		-o-transition: bottom 1s ease;
+		-ms-transition: bottom 1s ease;
+		transition: bottom 1s ease;
+			
+    	}
+    	ul#flip li img { 
+	    	width: 140px;
+	    	border: 0;
+       	 	outline: none;
+       	 	opacity: 1;
+       	 	
+       	 	-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			transition: all 1s ease;
+			
+			box-shadow: 0 5px 10px 1px #999;
+	    	}
+    	
+     	ul#flip li.active {
+	    	bottom: 50px;
+	    	z-index: 99;
+	      	}
+      	ul#flip li.active img {
+	    	width: 200px;
+	    	-webkit-transform: translateX(0px) translateZ(0px) rotateY(0deg)
+	      	}
+      
+		ul#flip li.before,
+		ul#flip li.after {
+	    	
+	      	} 
+			ul#flip li.before img,
+			ul#flip li.after img {
+		    	width: 140px;
+		    	opacity: 0.2;
+		      	}
+		    ul#flip li.before img {
+		      	-webkit-transform: rotateY(45deg);
+		      	-moz-transform	: rotateY(45deg)';
+				-o-transform		:rotateY(45deg)';
+				-ms-transform	: trotateY(45deg);
+				transform			: rotateY(45deg);
+		      	}
+		    ul#flip li.after img {
+		      	-webkit-transform: rotateY(-45deg);
+		      	-moz-transform	: rotateY(-45deg)';
+				-o-transform		:rotateY(-45deg)';
+				-ms-transform	: trotateY(-45deg);
+				transform			: rotateY(-45deg);
+		      	}
+      
+     	ul#flip li img { 
+	    	border: 0;
+       	 	outline: none;
+	    	}
+      	ul#flip li span { 
+	    	display: none;
+	    	}
+	
+	#currentTitle {
+		width: 300px;
+		height: 40px;
+		margin: 0 0 0 -150px;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		text-align: center;
+		color: #999;
+		}      
+      
+     a#prev,
+     a#next {
+     	width: 25px;
+     	height: 40px;
+     	position: absolute;
+     	top: 50%;
+     	left: 0px;
+     	text-decoration: none;
+     	z-index: 99;
+     	} 
+     a#next { left: auto; right: 0px; }
+
+      	
+	#flip .title {
+		position: absolute;
+		bottom: -30px;
+		width: 100%;
+		text-align: center;
+		color: #555;
+		}
