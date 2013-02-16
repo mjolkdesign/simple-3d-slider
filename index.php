@@ -17,10 +17,16 @@
 
 <div id="slider-container">
 	
-	<a id="prev" href="#"> &laquo;</a>
-	<a id="next" href="#"> &raquo;</a>
+	<a id="prev" href="#"> &lsaquo;</a>
+	<a id="next" href="#"> &rsaquo;</a>
 	
 	<ul id="flip">
+		<li class="slider-item">
+			<a href="#">
+				<span>Indonesia Beach &raquo;</span>
+				<img src="img/01.jpg" alt="Indonesia Beach"/>
+			</a>
+		</li>
 		<li class="slider-item">
 			<a href="#">
 				<span>Indonesia Beach &raquo;</span>
@@ -43,6 +49,12 @@
 			<a href="#">
 				<span>Indonesia Gili Meno Island &raquo;</span>
 				<img src="img/04.jpg" alt="Indonesia Gili Meno Island"/>
+			</a>
+		</li>
+		<li class="slider-item">
+			<a href="#">
+				<span>China Hangzhuo &raquo;</span>
+				<img src="img/05.jpg" alt="China Hangzhuo"/>
 			</a>
 		</li>
 		<li class="slider-item">

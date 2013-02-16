@@ -12,7 +12,7 @@ body {
         list-style-type: none;
 		}
       
-      /* Basic sample CSS */
+    /* Basic sample CSS */
     #slider-container {
     	width: 740px;
     	height: 300px;
@@ -27,18 +27,18 @@ body {
         height: 100%;
         margin: 0 auto 50px auto;
         position: relative;
-        
-        -webkit-transform-style: preserve-3d;
-        -moz-transform-style: preserve-3d;
-		-o-transform-style: preserve-3d;
-		-ms-transform-style: preserve-3d;
-		transform-style: preserve-3d;
-		
+
 		-webkit-perspective: 1000px;
 		-moz-perspective: 1000px;
 		-o-perspective: 1000px;
 		-ms-perspective: 1000px;
 		perspective: 1000px;
+		
+		-webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 		
 	}
       
@@ -72,43 +72,43 @@ body {
 			box-shadow: 0 5px 10px 1px #999;
 	    	}
     	
-     	ul#flip li.active {
-	    	bottom: 50px;
-	    	z-index: 99;
-	      	}
+    ul#flip li.active {
+    	bottom: 50px;
+    	z-index: 99;
+      	}
       	ul#flip li.active img {
 	    	width: 200px;
-	    	-webkit-transform: translateX(0px) translateZ(0px) rotateY(0deg)
+	    	-webkit-transform: rotateY(0deg);
+	    	-moz-transform: rotateY(0deg);
+			-o-transform: rotateY(0deg);
+			-ms-transform: trotateY(0deg);
+			transform: rotateY(0deg);
+	      	}
+     
+	ul#flip li.before,
+	ul#flip li.after {
+    	
+      	} 
+		ul#flip li.before img,
+		ul#flip li.after img {
+	    	width: 140px;
+	    	opacity: 0.2;
+	      	}
+	    ul#flip li.before img {
+	      	-webkit-transform: rotateY(45deg);
+	      	-moz-transform: rotateY(45deg);
+			-o-transform: rotateY(45deg);
+			-ms-transform: trotateY(45deg);
+			transform: rotateY(45deg);
+	      	}
+	    ul#flip li.after img {
+	      	-webkit-transform: rotateY(-45deg);
+	      	-moz-transform: rotateY(-45deg);
+			-o-transform: rotateY(-45deg);
+			-ms-transform: trotateY(-45deg);
+			transform: rotateY(-45deg);
 	      	}
       
-		ul#flip li.before,
-		ul#flip li.after {
-	    	
-	      	} 
-			ul#flip li.before img,
-			ul#flip li.after img {
-		    	width: 140px;
-		    	opacity: 0.2;
-		      	}
-		    ul#flip li.before img {
-		      	-webkit-transform: rotateY(45deg);
-		      	-moz-transform	: rotateY(45deg)';
-				-o-transform		:rotateY(45deg)';
-				-ms-transform	: trotateY(45deg);
-				transform			: rotateY(45deg);
-		      	}
-		    ul#flip li.after img {
-		      	-webkit-transform: rotateY(-45deg);
-		      	-moz-transform	: rotateY(-45deg)';
-				-o-transform		:rotateY(-45deg)';
-				-ms-transform	: trotateY(-45deg);
-				transform			: rotateY(-45deg);
-		      	}
-      
-     	ul#flip li img { 
-	    	border: 0;
-       	 	outline: none;
-	    	}
       	ul#flip li span { 
 	    	display: none;
 	    	}
@@ -124,17 +124,21 @@ body {
 		color: #999;
 		}      
       
-     a#prev,
-     a#next {
-     	width: 25px;
-     	height: 40px;
-     	position: absolute;
-     	top: 50%;
-     	left: 0px;
-     	text-decoration: none;
-     	z-index: 99;
-     	} 
-     a#next { left: auto; right: 0px; }
+    a#prev,
+    a#next {
+    	width: 32px;
+    	position: absolute;
+    	top: 35%;
+    	left: 0px;
+    	font-size: 120px;
+    	text-decoration: none;
+    	z-index: 99;
+    	} 
+    a#prev { text-align: right; }
+	a#next { 
+		left: auto; 
+		right: 0px; 
+		}
 
       	
 	#flip .title {

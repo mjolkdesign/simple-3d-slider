@@ -109,8 +109,49 @@
 				
 				console.log($this.currentIdx);
 				
-				$this.$children.eq($this.currentIdx).removeClass('active').addClass('before');
-				$this.$children.eq($this.currentIdx).prev().removeClass('after').addClass('active');
+				if($this.currentIdx == 0){
+					console.log('last item reached');
+					$this._moveItems('right', $this.$children.length-1);
+					
+					$this.$children.eq($this.$children.length-1).removeClass('after before').addClass('active');
+					$this.$children.eq($this.currentIdx).removeClass('active').addClass('before');
+					$this.$children.eq($this.$children.length-1).prevAll().removeClass('after').addClass('before');
+					
+					$this.currentIdx = $this.$children.length-1;
+				}
+				else{
+					$this.$children.eq($this.currentIdx - 1).removeClass('after before').addClass('active');
+					$this.$children.eq($this.currentIdx).removeClass('active').addClass('before');
+					
+					$this._moveItems('right', $this.currentIdx-1 );
+					$this.currentIdx -= 1;
+				}
+				
+			});
+			
+			$(this.$options.nextItem).click(function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				
+				console.log($this.currentIdx);
+				
+				if($this.currentIdx == ($this.$children.length-1)){
+					console.log('last item reached');
+					$this._moveItems('right', 0);
+					
+					$this.$children.eq(0).removeClass('after before').addClass('active');
+					$this.$children.eq($this.currentIdx).removeClass('active').addClass('before');
+					$this.$children.eq(0).nextAll().removeClass('before').addClass('after');
+					
+					$this.currentIdx = 0;
+				}
+				else{
+					$this.$children.eq($this.currentIdx + 1).removeClass('after before').addClass('active');
+					$this.$children.eq($this.currentIdx).removeClass('active').addClass('before');
+					
+					$this._moveItems('left', $this.currentIdx+1 );
+					$this.currentIdx += 1;
+				}				
 				
 			});
 			
@@ -124,13 +165,10 @@
 			console.log('setting items classes');
 			
 			// set the current element to active
-			this.$children.removeClass('active');
-			this.$children.removeClass('after');
-			this.$children.removeClass('before');
+			this.$children.eq(this.currentIdx).prevAll().addClass(this.$options.beforeClass).delay(500).removeClass('after active');
+			this.$children.eq(this.currentIdx).addClass(this.$options.activeClass).delay(500).removeClass('after before');
+			this.$children.eq(this.currentIdx).nextAll().addClass(this.$options.afterClass).delay(500).removeClass('before active');
 			
-			this.$children.eq(this.currentIdx).addClass(this.$options.activeClass);
-			this.$children.eq(this.currentIdx).prevAll().addClass(this.$options.beforeClass);
-			this.$children.eq(this.currentIdx).nextAll().addClass(this.$options.afterClass);
 		},
 		
 		_setCurrentTitle: function(){
@@ -145,8 +183,7 @@
 		_start: function(){
 			
 			if(this.$options.autoSlide){
-				//this._startAutoSlide();
-				//console.log('starting Auto sliding');
+				/** @todo **/
 			}
 		},		
 		
@@ -162,25 +199,17 @@
 			
 			//check if the clicked item is left or right from the current element
 			var clickedIdx = $('li').index($thisEl);
-			//console.log(clickedIdx);
-			//console.log($this.currentIdx);
 			
 			if(clickedIdx == $this.currentIdx)
 				return false;
 			else if(clickedIdx < $this.currentIdx){
 				e.preventDefault();
 				// move the list elements to the right
-				console.log('moving elements to the left');
 				$this._moveItems('left', clickedIdx);
-				
-				console.log($thisEl.find('img'));
-				//$thisEl.animate({'bottom': '20px'}, $this.$options.transitionSpeed);
-				//$thisEl.find('img').animate({'width': '200px'}, $this.$options.transitionSpeed);
 			}
 			else {
 				// move the list elements to the left
 				e.preventDefault();
-				console.log('moving elements to the right');
 				$this._moveItems('right', clickedIdx);
 			}
 			
@@ -197,7 +226,7 @@
 			
 			offsetX = offsetX * 150;
 			
-			console.log(offsetX);
+			//console.log(offsetX);
 			
 			this.$children.each(function(){
 				$(this).stop().animate({'left': '+=' + offsetX}, $this.$options.transitionSpeed);
@@ -205,11 +234,11 @@
 		},
 		
 		nextItem: function(){
-			
+			/** @todo **/
 		},
 		
 		prevItem: function(){
-			
+			/** @todo **/
 		}
 	};
 
